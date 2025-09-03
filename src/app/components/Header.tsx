@@ -35,7 +35,7 @@ export default function Header() {
               Inicio
             </a>
             <a href="#about" className="font-lato text-gold hover:text-pink">
-              Sobre mí...
+              Sobre mí
             </a>
             <a href="#reviews" className="font-lato text-gold hover:text-pink">
               Reseñas
@@ -139,7 +139,7 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
               className="font-lato items-center gap-2 flex text-p3 text-gold hover:text-indigo-500"
             >
-              <User size={18} /> Sobre mí...
+              <User size={18} /> Sobre mí
             </a>
             <a
               href="#reviews"

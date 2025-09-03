@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { Plus } from "lucide-react";
 
 const categories = [
   {
@@ -67,16 +68,16 @@ export default function Services() {
           {categories.map((cat) => (
             <div
               key={cat.id}
-              className="rounded-lg cursor-pointer"
+              className="rounded-lg cursor-pointer group"
               style={{
                 filter: `
-      drop-shadow(-32px 36px 28px rgba(252, 204, 208, 0.15))
-      drop-shadow(0px 4px 20px rgba(252, 204, 208, 0.7))
-    `,
+                  drop-shadow(-32px 36px 28px rgba(252, 204, 208, 0.15))
+                  drop-shadow(0px 4px 20px rgba(252, 204, 208, 0.7))
+                `,
               }}
               onClick={() => setSelectedCategory(cat)}
             >
-              <div className="relative group overflow-hidden rounded-lg">
+              <div className="relative overflow-hidden rounded-lg">
                 <Image
                   src={cat.img}
                   alt={cat.name}
@@ -85,17 +86,15 @@ export default function Services() {
                   className="object-cover w-full h-64 transition-transform duration-500 group-hover:scale-110"
                 />
 
-                {/* Overlay rosa de base */}
-                <div className="absolute inset-0 bg-[#FCCCD0]/50"></div>
-
-                {/* Overlay negro encima */}
-                <div className="absolute inset-0 bg-black/75"></div>
-
-                {/* Texto centrado */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-gold text-p1 font-lato underline hover:text-gold relative z-10">
+                {/* Overlay fijo con nombre + ver más */}
+                <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center space-y-2 text-center px-2">
+                  <span className="text-gold text-p1 font-bold font-raleway">
                     {cat.name}
                   </span>
+                  <div className="flex items-center space-x-2 text-gold font-lato text-base font-semibold">
+                    <span className="hidden sm:inline">ver más</span>
+                    <Plus className="w-5 h-5" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -123,7 +122,7 @@ export default function Services() {
           >
             <button
               onClick={() => setSelectedCategory(null)}
-              className="absolute top-4  right-4 text-gold hover:text-black"
+              className="absolute top-4 right-4 text-gold hover:text-black"
             >
               ✕
             </button>
@@ -136,8 +135,8 @@ export default function Services() {
                   key={i}
                   className="flex justify-between text-gold border-b pb-2"
                 >
-                  <span className="text-gold font-raleway">{service.name}</span>
-                  <span className="text-gold font-raleway font-semibold">
+                  <span className="text-gold font-lato">{service.name}</span>
+                  <span className="text-gold font-lato font-semibold">
                     {service.price}
                   </span>
                 </li>

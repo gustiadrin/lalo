@@ -41,21 +41,23 @@ export default function Reviews() {
   return (
     <section
       id="reviews"
-      className="w-full mt-14 mb-4 bg-gray-50 overflow-hidden scroll-mt-20"
+      className="w-full mt-14 mb-4 overflow-hidden scroll-mt-20"
     >
       <div className="max-w-6xl mx-auto">
         <h2 className="text-h4 font-raleway text-gold font-bold text-center mb-4 p-4">
           NUESTRAS CLIENTAS DICEN...
         </h2>
 
-        <div className="relative overflow-hidden">
-          {/* Contenedor de las tarjetas */}
+        {/* Contenedor scrollable */}
+        <div className="relative overflow-x-auto overflow-y-hidden no-scrollbar">
           <div
-            className={`flex w-[max-content] pb-6 pt-2 animate-marquee ${
-              paused ? "paused" : ""
-            } pause-on-hover`}
+            className={`flex w-[max-content] pb-6 pt-2 ${
+              paused ? "" : "animate-marquee"
+            }`}
             onTouchStart={() => setPaused(true)}
             onTouchEnd={() => setPaused(false)}
+            onMouseDown={() => setPaused(true)}
+            onMouseUp={() => setPaused(false)}
           >
             {/* Duplicamos las reseñas para loop infinito */}
             {reviews.concat(reviews).map((review, index) => (
@@ -99,11 +101,12 @@ export default function Reviews() {
           display: flex;
           animation: marquee 50s linear infinite;
         }
-        .paused {
-          animation-play-state: paused !important;
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
         }
-        .pause-on-hover:hover {
-          animation-play-state: paused;
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}</style>
     </section>
