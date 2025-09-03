@@ -37,16 +37,16 @@ const reviews = [
 
 export default function Reviews() {
   const [paused, setPaused] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     isDragging.current = true;
+    setPaused(true);
     startX.current = e.pageX - (scrollRef.current?.offsetLeft || 0);
     scrollLeft.current = scrollRef.current?.scrollLeft || 0;
-    setPaused(true);
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -76,7 +76,7 @@ export default function Reviews() {
         {/* Contenedor scrollable */}
         <div
           ref={scrollRef}
-          className="relative overflow-x-auto overflow-y-hidden no-scrollbar"
+          className="relative overflow-x-auto overflow-y-hidden no-scrollbar touch-scroll cursor-grab"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseUp}
@@ -89,12 +89,14 @@ export default function Reviews() {
               paused ? "" : "animate-marquee"
             }`}
           >
+            {/* Duplicamos las reseñas para loop infinito */}
             {reviews.concat(reviews).map((review, index) => (
               <div
                 key={review.id + "-" + index}
                 className="bg-white p-6 rounded-xl min-w-[300px] max-w-[350px] flex flex-col mr-6"
                 style={{
-                  boxShadow: `-32px 36px 24px rgba(252, 204, 208, 0.04), 0px 2px 16px rgba(252, 204, 208, 0.5)`,
+                  boxShadow:
+                    " -32px 36px 24px rgba(252, 204, 208, 0.04), 0px 2px 16px rgba(252, 204, 208, 0.5)",
                 }}
               >
                 <div className="flex items-center mb-4">
@@ -136,6 +138,15 @@ export default function Reviews() {
         .no-scrollbar {
           -ms-overflow-style: none;
           scrollbar-width: none;
+        }
+        .touch-scroll {
+          -webkit-overflow-scrolling: touch;
+        }
+        .cursor-grab {
+          cursor: grab;
+        }
+        .cursor-grab:active {
+          cursor: grabbing;
         }
       `}</style>
     </section>
