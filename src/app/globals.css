@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@layer components {
+  .h1 {
+    @apply font-allura text-h1 text-gold;
+  }
+
+  .h2 {
+    @apply font-raleway font-bold text-h2;
+  }
+
+  .h3 {
+    @apply font-raleway font-bold text-h3;
+  }
+
+  .h4 {
+    @apply font-raleway font-bold text-h4;
+  }
+
+  .h4-reg {
+    @apply font-lato font-regular text-h4;
+  }
+
+  .h5 {
+    @apply font-raleway font-regular text-h5;
+  }
+
+  .p1 {
+    @apply font-raleway font-regular text-p1;
+  }
+
+  .p2 {
+    @apply font-raleway font-regular text-p2;
+  }
+
+  .p3 {
+    @apply font-raleway font-regular text-p3;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-allura: var(--font-allura);
+  --font-raleway: var(--font-raleway);
+  --font-lato: var(--font-lato);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
