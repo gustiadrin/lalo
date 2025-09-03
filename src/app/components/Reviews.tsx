@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 
 const reviews = [
@@ -37,6 +37,31 @@ const reviews = [
 
 export default function Reviews() {
   const [paused, setPaused] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    isDragging.current = true;
+    startX.current = e.pageX - (scrollRef.current?.offsetLeft || 0);
+    scrollLeft.current = scrollRef.current?.scrollLeft || 0;
+    setPaused(true);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    const x = e.pageX - (scrollRef.current?.offsetLeft || 0);
+    const walk = x - startX.current;
+    if (scrollRef.current)
+      scrollRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+    setPaused(false);
+  };
 
   return (
     <section
@@ -49,17 +74,21 @@ export default function Reviews() {
         </h2>
 
         {/* Contenedor scrollable */}
-        <div className="relative overflow-x-auto overflow-y-hidden no-scrollbar">
+        <div
+          ref={scrollRef}
+          className="relative overflow-x-auto overflow-y-hidden no-scrollbar"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseUp}
+          onMouseUp={handleMouseUp}
+          onTouchStart={() => setPaused(true)}
+          onTouchEnd={() => setPaused(false)}
+        >
           <div
             className={`flex w-[max-content] pb-6 pt-2 ${
               paused ? "" : "animate-marquee"
             }`}
-            onTouchStart={() => setPaused(true)}
-            onTouchEnd={() => setPaused(false)}
-            onMouseDown={() => setPaused(true)}
-            onMouseUp={() => setPaused(false)}
           >
-            {/* Duplicamos las reseñas para loop infinito */}
             {reviews.concat(reviews).map((review, index) => (
               <div
                 key={review.id + "-" + index}
