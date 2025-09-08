@@ -44,10 +44,19 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${allura.variable} ${raleway.variable} ${lato.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${allura.variable} ${raleway.variable} ${lato.variable} 2xl:flex antialiased`}
       >
-        <Header></Header>
-        {children}
+        {/* Franja izquierda */}
+        <div className="hidden 2xl:block 2xl:w-1/5 2xl:min-h-screen 2xl:bg-white"></div>
+
+        {/* Contenido principal */}
+        <div className="flex-1 2xl:w-3/5">
+          <Header />
+          {children}
+        </div>
+
+        {/* Franja derecha */}
+        <div className="hidden 2xl:block 2xl:w-1/5 2xl:min-h-screen 2xl:bg-white"></div>
       </body>
     </html>
   );

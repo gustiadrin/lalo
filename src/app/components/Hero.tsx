@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative h-[550px] w-full overflow-hidden scroll-mt-20"
+      className="relative h-[550px] xl:h-[700px] w-full overflow-hidden scroll-mt-20"
     >
       <video
         className="absolute inset-0 w-full h-full object-cover"
