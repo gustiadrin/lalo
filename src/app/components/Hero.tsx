@@ -21,10 +21,10 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/75"></div>
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full">
-        <h1 className="mb-0 p-0 leading-none font-raleway text-gold text-[100px] md:text-6xl text-center px-4">
+        <h1 className="mb-0 p-0 leading-none font-raleway text-gold text-[100px] md:text-[160px] lg:text-[200px] text-center px-4">
           LALO
         </h1>
-        <h2 className="mt-0 p-0 leading-none font-allura text-gold text-[48px] md:text-6xl text-center px-4">
+        <h2 className="mt-0 p-0 leading-none font-allura text-gold text-[48px] md:text-[96px] lg:text-[120px] text-center px-4">
           hair and beauty salon
         </h2>
       </div>

@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <>
       <header
-        className="sticky top-0 z-50 bg-white shadow-md h-16 py-4"
+        className="sticky top-0 z-50 bg-white shadow-md h-16 md:h-20 lg:h-24 py-4"
         style={{
           boxShadow: "inset -4px -4px 10px #FCCCD0, inset 4px 4px 10px #FCCCD0",
         }}
@@ -30,33 +30,48 @@ export default function Header() {
           </div> */}
 
           {/* Menú de escritorio */}
-          <nav className="hidden md:flex space-x-6">
-            <a href="#hero" className="ffont-lato text-gold hover:text-pink">
+          <nav className="hidden lg:flex space-x-6">
+            <a
+              href="#hero"
+              className="font-lato text-gold text-p1 hover:text-pink"
+            >
               Inicio
             </a>
-            <a href="#about" className="font-lato text-gold hover:text-pink">
+            <a
+              href="#about"
+              className="font-lato text-gold text-p1 hover:text-pink"
+            >
               Sobre mí
             </a>
-            <a href="#reviews" className="font-lato text-gold hover:text-pink">
+            <a
+              href="#reviews"
+              className="font-lato text-gold text-p1 hover:text-pink"
+            >
               Reseñas
             </a>
-            <a href="#services" className="font-lato text-gold hover:text-pink">
+            <a
+              href="#services"
+              className="font-lato text-gold text-p1 hover:text-pink"
+            >
               Servicios
             </a>
-            <a href="#schedule" className="font-lato text-gold hover:text-pink">
+            <a
+              href="#schedule"
+              className="font-lato text-gold text-p1 hover:text-pink"
+            >
               Horario
             </a>
           </nav>
 
           {/* Botón hamburguesa */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className=" text-gold focus:outline-none"
             >
               {
                 <svg
-                  className="w-6 h-6 text-gold"
+                  className="w-6 h-6 md:h-8 md:w-8 text-gold"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -71,7 +86,7 @@ export default function Header() {
               }
             </button>
           </div>
-          <div className="relative w-24 h-16 right-[-15px] flex-shrink-0">
+          <div className="relative w-24 h-16 md:w-32 md:h-24 lg:w-36 lg:h-28 right-[-15px] flex-shrink-0">
             <Link href={"#hero"}>
               <Image
                 src="/logotipo.png"
@@ -86,7 +101,7 @@ export default function Header() {
 
         {/* Menú móvil con overlay */}
         <div
-          className={`md:hidden fixed inset-0 z-40 bg-gradient-to-br from-black/50 to-[#FCCCD0]/50 transition-opacity duration-300
+          className={`lg:hidden fixed inset-0 z-40 bg-gradient-to-br from-black/50 to-[#FCCCD0]/50 transition-opacity duration-300
     ${
       menuOpen
         ? "opacity-100 pointer-events-auto"
@@ -112,7 +127,7 @@ export default function Header() {
               className="absolute top-5 right-4 text-gray-700 focus:outline-none"
             >
               <svg
-                className="w-6 h-6 text-gold"
+                className="w-6 h-6 md:h-8 md:w-8 text-gold"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -129,38 +144,38 @@ export default function Header() {
             <a
               href="#hero"
               onClick={() => setMenuOpen(false)}
-              className="font-lato items-center gap-2 flex text-p3 text-gold hover:text-indigo-500"
+              className="font-lato items-center gap-2 flex text-p3 md:text-p1 text-gold hover:text-indigo-500"
             >
-              <Home size={18} />
+              <Home className="w-4 h-4 md:w-5 md:h-5" />
               Inicio
             </a>
             <a
               href="#about"
               onClick={() => setMenuOpen(false)}
-              className="font-lato items-center gap-2 flex text-p3 text-gold hover:text-indigo-500"
+              className="font-lato items-center gap-2 flex text-p3 md:text-p1 text-gold hover:text-indigo-500"
             >
-              <User size={18} /> Sobre mí
+              <User className="w-4 h-4 md:w-5 md:h-5" /> Sobre mí
             </a>
             <a
               href="#reviews"
               onClick={() => setMenuOpen(false)}
-              className="font-lato items-center gap-2 text-p3 flex text-gold hover:text-indigo-500"
+              className="font-lato items-center gap-2 text-p3 md:text-p1 flex text-gold hover:text-indigo-500"
             >
-              <Star size={18} /> Reseñas
+              <Star className="w-4 h-4 md:w-5 md:h-5" /> Reseñas
             </a>
             <a
               href="#services"
               onClick={() => setMenuOpen(false)}
-              className="font-lato items-center gap-2 flex text-p3 text-gold hover:text-indigo-500"
+              className="font-lato items-center gap-2 flex text-p3 md:text-p1 text-gold hover:text-indigo-500"
             >
-              <Scissors size={18} /> Nuestros servicios
+              <Scissors className="w-4 h-4 md:w-5 md:h-5" /> Nuestros servicios
             </a>
             <a
               href="#schedule"
               onClick={() => setMenuOpen(false)}
-              className="font-lato items-center gap-2 flex text-p3 text-gold hover:text-indigo-500"
+              className="font-lato items-center gap-2 flex text-p3 md:text-p1 text-gold hover:text-indigo-500"
             >
-              <Clock size={18} /> Horario
+              <Clock className="w-4 h-4 md:w-5 md:h-5" /> Horario
             </a>
           </div>
         </div>

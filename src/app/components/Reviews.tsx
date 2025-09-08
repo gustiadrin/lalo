@@ -69,7 +69,7 @@ export default function Reviews() {
       className="w-full mt-14 mb-4 overflow-hidden scroll-mt-20"
     >
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-h4 font-raleway text-gold font-bold text-center mb-4 p-4">
+        <h2 className="text-h4 md:text-h3 font-raleway text-gold font-bold text-center mb-4 p-4">
           NUESTRAS CLIENTAS DICEN...
         </h2>
 
@@ -93,7 +93,7 @@ export default function Reviews() {
             {reviews.concat(reviews).map((review, index) => (
               <div
                 key={review.id + "-" + index}
-                className="bg-white p-6 rounded-xl min-w-[300px] max-w-[350px] flex flex-col mr-6"
+                className="bg-white p-6 rounded-xl min-w-[300px] max-w-[350px] md:max-w-[400px] flex flex-col mr-6"
                 style={{
                   boxShadow:
                     " -32px 36px 24px rgba(252, 204, 208, 0.04), 0px 2px 16px rgba(252, 204, 208, 0.5)",
@@ -108,11 +108,13 @@ export default function Reviews() {
                       className="object-cover"
                     />
                   </div>
-                  <p className="font-lato text-gold text-[16px]">
+                  <p className="font-lato text-gold text-p2 md:text-p3">
                     {review.name}
                   </p>
                 </div>
-                <p className="font-lato text-gold text-[12px]">{review.text}</p>
+                <p className="font-lato text-gold text-[14px] md:text-p2">
+                  {review.text}
+                </p>
               </div>
             ))}
           </div>

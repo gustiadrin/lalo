@@ -8,27 +8,39 @@ export default function Schedule() {
         <h2 className="text-h4 font-raleway font-bold text-center text-gold mb-8">
           HORARIO
         </h2>
-        <div className="grid grid-cols-[auto_auto] gap-x-6 gap-y-3 text-lg justify-center">
-          <p className="text-[16px] font-lato text-gold">Lunes</p>
-          <p className="text-[16px] font-lato text-gold">Cerrado</p>
+        <div className="grid grid-cols-[auto_auto] gap-x-6 md:gap-x-20 gap-y-3 text-lg justify-center">
+          <p className="text-[16px] md:text-p1 font-lato text-gold">Lunes</p>
+          <p className="text-[16px] md:text-p1  font-lato text-gold">Cerrado</p>
 
-          <p className="text-[16px] font-lato text-gold">Martes</p>
-          <p className="text-[16px] font-lato text-gold">10:30 - 19:30</p>
+          <p className="text-[16px] md:text-p1  font-lato text-gold">Martes</p>
+          <p className="text-[16px] md:text-p1  font-lato text-gold">
+            10:30 - 19:30
+          </p>
 
-          <p className="text-[16px] font-lato text-gold">Miércoles</p>
-          <p className="text-[16px] font-lato text-gold">10:00 - 19:30</p>
+          <p className="text-[16px] md:text-p1  font-lato text-gold">
+            Miércoles
+          </p>
+          <p className="text-[16px] md:text-p1  font-lato text-gold">
+            10:00 - 19:30
+          </p>
 
-          <p className="text-[16px] font-lato text-gold">Jueves</p>
-          <p className="text-[16px] font-lato text-gold">10:00 - 19:30</p>
+          <p className="text-[16px] md:text-p1  font-lato text-gold">Jueves</p>
+          <p className="text-[16px] md:text-p1  font-lato text-gold">
+            10:00 - 19:30
+          </p>
 
-          <p className="text-[16px] font-lato text-gold">Viernes</p>
-          <p className="text-[16px] font-lato text-gold">10:00 - 19:30</p>
+          <p className="text-[16px] md:text-p1  font-lato text-gold">Viernes</p>
+          <p className="text-[16px] md:text-p1  font-lato text-gold">
+            10:00 - 19:30
+          </p>
 
-          <p className="text-[16px] font-lato text-gold">Sábado</p>
-          <p className="text-[16px] font-lato text-gold">10:00 - 14:30</p>
+          <p className="text-[16px] md:text-p1  font-lato text-gold">Sábado</p>
+          <p className="text-[16px] md:text-p1  font-lato text-gold">
+            10:00 - 14:30
+          </p>
 
-          <p className="text-[16px] font-lato text-gold">Domingo</p>
-          <p className="text-[16px] font-lato text-gold">Cerrado</p>
+          <p className="text-[16px] md:text-p1  font-lato text-gold">Domingo</p>
+          <p className="text-[16px] md:text-p1  font-lato text-gold">Cerrado</p>
         </div>
       </div>
 

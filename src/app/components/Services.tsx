@@ -59,21 +59,25 @@ export default function Services() {
   return (
     <section id="services" className="w-full my-12 scroll-mt-20">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-h4 font-raleway text-gold font-bold text-center mb-8 p-4">
+        <h2 className="text-h4 md:text-h3 font-raleway text-gold font-bold text-center mb-8 p-4">
           SERVICIOS
         </h2>
 
         {/* Grid de categorías */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 px-10">
-          {categories.map((cat) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 px-10">
+          {categories.map((cat, index) => (
             <div
               key={cat.id}
-              className="rounded-lg cursor-pointer group"
+              className={`rounded-lg cursor-pointer group ${
+                index === 4
+                  ? "md:col-span-2 md:justify-self-center max-w-[400px]"
+                  : ""
+              }`}
               style={{
                 filter: `
-                  drop-shadow(-32px 36px 28px rgba(252, 204, 208, 0.15))
-                  drop-shadow(0px 4px 20px rgba(252, 204, 208, 0.7))
-                `,
+          drop-shadow(-32px 36px 28px rgba(252, 204, 208, 0.15))
+          drop-shadow(0px 4px 20px rgba(252, 204, 208, 0.7))
+        `,
               }}
               onClick={() => setSelectedCategory(cat)}
             >
@@ -110,7 +114,7 @@ export default function Services() {
             boxShadow:
               "inset -4px -4px 10px #FCCCD0, inset 4px 4px 10px #FCCCD0",
           }}
-          onClick={() => setSelectedCategory(null)} // cerrar al hacer click fuera
+          onClick={() => setSelectedCategory(null)}
         >
           <div
             className="bg-white rounded-lg p-8 shadow-lg max-w-lg w-full relative"
@@ -118,7 +122,7 @@ export default function Services() {
               boxShadow:
                 "inset -4px -4px 10px #FCCCD0, inset 4px 4px 10px #FCCCD0",
             }}
-            onClick={(e) => e.stopPropagation()} // evita cerrar al hacer click dentro
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedCategory(null)}
