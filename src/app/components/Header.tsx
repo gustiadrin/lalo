@@ -16,7 +16,7 @@ export default function Header() {
           boxShadow: "inset -4px -4px 10px #FCCCD0, inset 4px 4px 10px #FCCCD0",
         }}
       >
-        <div className="max-w-6xl mx-auto relative top-1/2 -translate-y-1/2 flex justify-between items-center p-4 h-24">
+        <div className="mx-auto relative top-1/2 -translate-y-1/2 flex justify-between items-center p-4 h-24 lg:px-10">
           {/* <div className="relative w-24 h-16 left-[-20px] flex-shrink-0">
             <Link href={"#hero"}>
               <Image
